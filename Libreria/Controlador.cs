@@ -42,10 +42,10 @@ namespace Libreria
                     m.registerVolume();
                     break;
                 case 4:
-                    m.registerLoan();
+                    if(!m.registerLoan(v.AskForInt("Introduce el código de libro:"), v.AskForInt("Introduce el código de cliente:"))) Console.WriteLine("No se ha podido registrar el prestamo.");
                     break;
                 case 5:
-                    m.returnBook();
+                    if(!m.returnVolume(v.AskForInt("Introduce el código del préstamo para efectuar la devolución"))) Console.WriteLine("No se ha encontrado el prestamo.");
                     break;
                 case 6:
                     m.library.listClients();
@@ -64,7 +64,7 @@ namespace Libreria
                     return true; // Reiniciar el menú
             }
             m.saveData();
-            return !v.AskForBool("¿Deseas salir del programa? Escribe si / no:");
+            return true;
         }
     }
 }

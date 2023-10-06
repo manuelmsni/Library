@@ -26,12 +26,14 @@ namespace Libreria
             if(!books.Contains(vol.book)) books.Add(vol.book);
             return true;
         }
-        public bool lendVolume(int bookCode, Client client)
+        public bool lendVolume(int bookCode, int clientCod)
         {
             Volume volume = getAvaibleVolumeByBookCode(bookCode);
             if(volume == null) return false;
+            Client c = getClientByCode(clientCod);
+            if (c == null) return false;
             volumes.Remove(volume);
-            loans.Add(new Loan(client, volume));
+            loans.Add(new Loan(c, volume));
             return true;
             
         }
@@ -47,8 +49,10 @@ namespace Libreria
             }
             return null;
         }
-        public bool returnVolume(Loan loan)
+        public bool returnVolume(int loanCod)
         {
+            Loan loan = getLoanByCode(loanCod);
+            if(loan == null) return false;
             if(!loans.Contains(loan)) return false;
             loans.Remove(loan);
             volumes.Add(loan.volume);

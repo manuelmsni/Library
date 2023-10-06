@@ -19,7 +19,7 @@ namespace Libreria
             initSettings();
             library = loadData();
         }
-        public void registerClient()
+        public void registerClient(string nombre)
         {
             
         }
@@ -27,17 +27,17 @@ namespace Libreria
         {
 
         }
-        public void registerVolume()
+        public void registerVolume(int codLibro)
         {
 
         }
-        public void registerLoan()
+        public bool registerLoan(int codLibro, int codCliente)
         {
-
+            return library.lendVolume(codLibro, codCliente);
         }
-        public void returnBook()
+        public bool returnVolume(int codLoan)
         {
-
+            return library.returnVolume(codLoan);
         }
         public void saveData()
         {
