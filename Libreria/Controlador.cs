@@ -33,19 +33,19 @@ namespace Libreria
                     return false; // Salir del programa
                     break;
                 case 1:
-
+                    m.registerClient();
                     break;
                 case 2:
-
+                    m.registerBook();
                     break;
                 case 3:
-
+                    m.registerVolume();
                     break;
                 case 4:
-
+                    m.registerLoan();
                     break;
                 case 5:
-
+                    m.returnBook();
                     break;
                 case 6:
                     m.library.listClients();

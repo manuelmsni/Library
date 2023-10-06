@@ -19,15 +19,25 @@ namespace Libreria
             initSettings();
             library = loadData();
         }
-        public void initSettings()
+        public void registerClient()
         {
-            Constants constants = readConstants("config.json");
-            saveRoute = constants.saveRoute;
+            
         }
-        public Constants readConstants(string path)
+        public void registerBook()
         {
-            string json = File.ReadAllText(path);
-            return JsonSerializer.Deserialize<Constants>(json);
+
+        }
+        public void registerVolume()
+        {
+
+        }
+        public void registerLoan()
+        {
+
+        }
+        public void returnBook()
+        {
+
         }
         public void saveData()
         {
@@ -52,6 +62,16 @@ namespace Libreria
             {
                 return new Library();
             }
+        }
+        public void initSettings()
+        {
+            Constants constants = readConstants("config.json");
+            saveRoute = constants.saveRoute;
+        }
+        public Constants readConstants(string path)
+        {
+            string json = File.ReadAllText(path);
+            return JsonSerializer.Deserialize<Constants>(json);
         }
         public class Constants
         {
